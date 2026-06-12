@@ -1,0 +1,224 @@
+:root {
+	--ycc-background: #ffffff;
+	--ycc-text: #1d2327;
+	--ycc-muted: #50575e;
+	--ycc-border: #dcdcde;
+	--ycc-primary: #1d2327;
+	--ycc-primary-text: #ffffff;
+	--ycc-overlay: rgba(0, 0, 0, 0.42);
+	--ycc-focus: #2271b1;
+}
+
+.ycc-hidden { display: none !important; }
+
+.ycc-banner {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	z-index: 999999;
+	box-sizing: border-box;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 20px;
+	background: var(--ycc-background);
+	color: var(--ycc-text);
+	border: 1px solid var(--ycc-border);
+	border-radius: 14px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+	font-family: inherit;
+}
+
+.ycc-banner__title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	line-height: 1.3;
+	font-weight: 700;
+}
+
+.ycc-banner__message {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--ycc-muted);
+}
+
+.ycc-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+.ycc-links a { color: inherit; text-decoration: underline; }
+
+.ycc-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 16px;
+}
+
+.ycc-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 40px;
+	padding: 9px 16px;
+	border: 1px solid var(--ycc-border);
+	border-radius: 999px;
+	background: #fff;
+	color: var(--ycc-text);
+	cursor: pointer;
+	font: inherit;
+	font-size: 14px;
+	line-height: 1.2;
+	text-decoration: none;
+}
+
+.ycc-button:hover,
+.ycc-button:focus {
+	outline: 2px solid var(--ycc-focus);
+	outline-offset: 2px;
+}
+
+.ycc-button--primary {
+	background: var(--ycc-primary);
+	border-color: var(--ycc-primary);
+	color: var(--ycc-primary-text);
+}
+
+.ycc-modal-overlay {
+	position: fixed;
+	z-index: 1000000;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background: var(--ycc-overlay);
+}
+
+.ycc-modal {
+	width: min(720px, 100%);
+	max-height: min(760px, 90vh);
+	overflow: auto;
+	background: var(--ycc-background);
+	color: var(--ycc-text);
+	border-radius: 16px;
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+}
+
+.ycc-modal__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 20px 22px;
+	border-bottom: 1px solid var(--ycc-border);
+}
+
+.ycc-modal__title {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.ycc-modal__close {
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	font-size: 26px;
+	line-height: 1;
+	padding: 4px;
+}
+
+.ycc-modal__body { padding: 20px 22px; }
+
+.ycc-category {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 16px;
+	align-items: center;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--ycc-border);
+}
+
+.ycc-category:first-child { padding-top: 0; }
+
+.ycc-category__title {
+	margin: 0 0 5px;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.ycc-category__description {
+	margin: 0;
+	color: var(--ycc-muted);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.ycc-locked {
+	color: var(--ycc-muted);
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.ycc-switch {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 26px;
+}
+
+.ycc-switch input { opacity: 0; width: 0; height: 0; }
+
+.ycc-slider {
+	position: absolute;
+	cursor: pointer;
+	inset: 0;
+	background-color: #b9b9b9;
+	border-radius: 999px;
+	transition: 0.2s;
+}
+
+.ycc-slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 3px;
+	bottom: 3px;
+	background-color: #fff;
+	border-radius: 50%;
+	transition: 0.2s;
+}
+
+.ycc-switch input:checked + .ycc-slider { background-color: var(--ycc-primary); }
+.ycc-switch input:checked + .ycc-slider:before { transform: translateX(22px); }
+
+.ycc-modal__footer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: flex-end;
+	padding: 18px 22px 22px;
+}
+
+@media (max-width: 640px) {
+	.ycc-banner {
+		right: 12px;
+		bottom: 12px;
+		left: 12px;
+		padding: 16px;
+	}
+	.ycc-actions,
+	.ycc-modal__footer { flex-direction: column; }
+	.ycc-button { width: 100%; }
+	.ycc-category { grid-template-columns: 1fr; }
+}

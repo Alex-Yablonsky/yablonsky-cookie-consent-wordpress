@@ -1,0 +1,27 @@
+.ycc-admin-page .description {
+	max-width: 880px;
+}
+
+.ycc-settings-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	margin: 20px 0;
+	max-width: 980px;
+	padding: 20px;
+}
+
+.ycc-settings-card h2 {
+	margin-top: 0;
+}
+
+.ycc-field-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	max-width: 480px;
+}
+
+.ycc-field-stack .regular-text {
+	width: 100%;
+}
